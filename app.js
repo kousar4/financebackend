@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -8,6 +9,7 @@ const sqlite3 = require("sqlite3");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const dbPath = path.join(__dirname, "finance.db");
 let db = null;
