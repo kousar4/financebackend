@@ -48,7 +48,7 @@ const authenticateToken = (request, response, next) => {
     response.status(401);
     response.send("Invalid JWT Token");
   } else {
-    jwt.verify(jwtToken, "zxcvbn", async (error, payload) => {
+    jwt.verify(jwtToken, "zxcvbnm", async (error, payload) => {
       if (error) {
         response.status(401);
         response.send("Invalid JWT Token");
