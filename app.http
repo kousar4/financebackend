@@ -18,14 +18,19 @@ Content-Type: application/json
 
 }
 
+###
+
+GET http://localhost:3000/posts
+
 
 ###
 
 POST http://localhost:3000/posts/
 Content-Type: application/json
+
+
+[
 {
-    [
-  {
     "userId": 1,
     "id": 1,
     "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
@@ -626,4 +631,4 @@ Content-Type: application/json
     "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
   }
 ]
-}
+

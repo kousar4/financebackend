@@ -102,14 +102,14 @@ app.post("/login/", async (request, response) => {
   }
 });
 
-//POSTLIST
+// POSTLIST
 
 app.post("/posts/", async (request, response) => {
   const postDetails = request.body;
-  // let us assume we have the table named book with title, author_id, and rating as columns
+
   const values = postDetails.map(
     (eachPost) =>
-      `('${eachPost.user_id}', ${eachPost.id}, ${eachPost.title},${eachPost.body})`
+      `('${eachPost.userId}', ${eachPost.id}, '${eachPost.title}','${eachPost.body}')`
   );
 
   const valuesString = values.join(",");
@@ -123,6 +123,15 @@ app.post("/posts/", async (request, response) => {
   const dbResponse = await db.run(addBookQuery);
   const postId = dbResponse.lastID;
   response.send({ postId: postId });
+});
+
+//GET POSTS
+app.get("/posts", async (request, response) => {
+  const getPostsQuery = `
+        SELECT * FROM postlist ORDER BY id
+    `;
+  const dbResponse = await db.all(getPostsQuery);
+  response.send(dbResponse);
 });
 
 module.exports = app;
